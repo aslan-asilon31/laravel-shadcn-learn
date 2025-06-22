@@ -2,14 +2,14 @@ import React from 'react';
 import Container from '@/components/container';
 import Button from '@/components/button';
 import AppLayout from '@/layouts/app-layout';
-import { usePage, Head ,useForm} from '@inertiajs/react';
+import {  Head ,useForm} from '@inertiajs/react';
 import { type BreadcrumbItem } from '@/types';
 import Input from '@/components/input';
 import Swal from 'sweetalert2';
 import {
   Card,
 } from "@/components/ui/card"
-export default function Create({auth}) {
+export default function Create() {
 
     // define state with helper inertia
     const { data, setData, post,processing, errors } = useForm({

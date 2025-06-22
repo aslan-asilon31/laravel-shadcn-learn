@@ -1,4 +1,3 @@
-import React from 'react';
 import Container from '@/components/container';
 import Button from '@/components/button';
 import AppLayout from '@/layouts/app-layout';
@@ -11,7 +10,7 @@ import Swal from 'sweetalert2';
 import {
   Card,
 } from "@/components/ui/card"
-export default function Edit({auth}) {
+export default function Edit() {
      const { permissions, role } = usePage().props;
 
     // define state with helper inertia

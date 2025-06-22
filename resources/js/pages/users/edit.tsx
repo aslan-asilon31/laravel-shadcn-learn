@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 import {
   Card,
 } from "@/components/ui/card"
-export default function Edit({auth}) {
+export default function Edit() {
       const { user, roles } = usePage().props;
 
     // define state with helper inertia

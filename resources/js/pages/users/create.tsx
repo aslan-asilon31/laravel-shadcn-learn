@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 import {
   Card,
 } from "@/components/ui/card"
-export default function Create({auth}) {
+export default function Create() {
 
       const { roles } = usePage().props;
 
