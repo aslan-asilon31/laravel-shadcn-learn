@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\Pages\KaPmb\SetupPmbController;
 
 Route::get('/', function () {
     return Inertia::render('welcome');
@@ -17,6 +18,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 Route::middleware('auth')->prefix('dashboard')->group(function () {
+
+    Route::prefix('kapmb')->name('kapmb.')->group(function () {
+        Route::get('/setup-pmb', [SetupPmbController::class, 'index'])->name('setup-pmb.index');
+    });
     // permissions route
     Route::resource('/permissions', PermissionController::class);
      // roles route
