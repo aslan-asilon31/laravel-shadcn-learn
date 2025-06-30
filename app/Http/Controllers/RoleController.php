@@ -7,6 +7,7 @@ use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+
 class RoleController extends Controller implements HasMiddleware // Implement Middleware Spatie
 {
     public static function middleware()
@@ -26,12 +27,12 @@ class RoleController extends Controller implements HasMiddleware // Implement Mi
         // get roles
         $roles = Role::select('id', 'name')
             ->with('permissions:id,name')
-            ->when($request->search,fn($search) => $search->where('name', 'like', '%'.$request->search.'%'))
+            ->when($request->search, fn($search) => $search->where('name', 'like', '%' . $request->search . '%'))
             ->latest()
             ->paginate(6);
 
         // render view
-        return inertia('roles/index', ['roles' => $roles,'filters' => $request->only(['search'])]);
+        return inertia('roles/index', ['roles' => $roles, 'filters' => $request->only(['search'])]);
     }
 
     /**
@@ -60,8 +61,8 @@ class RoleController extends Controller implements HasMiddleware // Implement Mi
      */
     public function store(Request $request)
     {
-         // validate request
-         $request->validate([
+        // validate request
+        $request->validate([
             'name' => 'required|min:3|max:255|unique:roles',
             'selectedPermissions' => 'required|array|min:1',
         ]);
@@ -114,7 +115,7 @@ class RoleController extends Controller implements HasMiddleware // Implement Mi
     {
         // validate request
         $request->validate([
-            'name' => 'required|min:3|max:255|unique:roles,name,'.$role->id,
+            'name' => 'required|min:3|max:255|unique:roles,name,' . $role->id,
             'selectedPermissions' => 'required|array|min:1',
         ]);
 
