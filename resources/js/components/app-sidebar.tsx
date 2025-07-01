@@ -103,6 +103,8 @@ export function AppSidebar() {
                 <SidebarMenuItem>
                   <CollapsibleTrigger asChild>
                     <SidebarMenuButton>
+                      <SidebarGroupLabel>Projects</SidebarGroupLabel>
+
                       <Users className="mr-2" />
                       Role & Permission
                       <ChevronDown
